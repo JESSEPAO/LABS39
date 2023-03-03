@@ -1,0 +1,48 @@
+---------------------------------------------
+title: "LAB_39"
+author: "JESSICA PAOLA AGUILAR SERVIN"
+date: "2023-03-03"
+output: html_document
+---------------------------------------------------
+
+INSTALAR PAQUETERIA
+install.packages("jsonlite")
+
+LLAMAR LIBRERIA 
+```{r}
+library(jsonlite)
+```
+
+BUSCAR ARCHIVO
+file.choose()
+
+DESCARGAR DATOS DE API 
+```{r}
+datos_api2 <- fromJSON("C:\\Users\\gusta\\OneDrive\\Documents\\GitHub\\JPAS_LABS39\\INPUT\\Municipality-Year-records.json")
+
+```
+CREAR LISTA
+```{r}
+class(datos_api2)
+names(datos_api2)
+```
+
+VER TABLA 
+```{r}
+View(datos_api2[["data"]])
+```
+
+CREAR FRAME
+```{r}
+
+final_API <- as.data.frame((datos_api2[["data"]]))
+class(final_API)
+```
+
+GUARDAR ARCHIVO EN CVS
+
+```{r}
+write.csv(final_API, file = "final_API.CSV")
+```
+
+
